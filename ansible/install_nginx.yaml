@@ -1,0 +1,12 @@
+---
+- hosts: server1
+  become: yes  # Run tasks with elevated privileges (sudo)
+  tasks:
+    - name: Install Nginx
+      dnf:
+        name: nginx
+        state: present
+    - name: start nginx
+      service:
+        name: nginx
+        state: started
